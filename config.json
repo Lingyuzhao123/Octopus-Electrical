@@ -1,0 +1,70 @@
+{
+    "site": {
+        "title": "Octopus Electrical & HVAC",
+        "tagline": "Connecting Your World",
+        "logo": "/assets/logo.png",
+        "description": "Experts in house wiring and rewiring... Done once, Done right!",
+        "phone": "021 024 68146"
+    },
+    "i18n": [
+        "en",
+        "zh"
+    ],
+    "theme": [
+        "light",
+        "dark"
+    ],
+    "sections": {
+        "landing": {
+            "heading": {
+                "en": "Experts in house wiring and rewiring, switchboard upgrade, appliance installation, HVAC and EV charger installation.",
+                "zh": "专业提供家用电路布线与重布线、配电箱升级、家电安装、暖通空调及电动汽车充电桩安装。"
+            },
+            "subheading": {
+                "en": "Master Electrician Around you! Done once, Done right!",
+                "zh": "资深电工，专业可靠，一次到位！"
+            },
+            "cta": {
+                "en": "Call us today for FREE QUOTE!",
+                "zh": "今日致电，免费报价！"
+            }
+        },
+        "services": [
+            {
+                "id": "electrical",
+                "title": "Electrical",
+                "icon": "/assets/electrical.png",
+                "description": {
+                    "en": "...",
+                    "zh": "..."
+                }
+            },
+            {
+                "id": "hvac",
+                "title": "HVAC",
+                "icon": "/assets/hvac.png",
+                "description": {
+                    "en": "...",
+                    "zh": "..."
+                }
+            },
+            {
+                "id": "ev",
+                "title": "EV Charger",
+                "icon": "/assets/ev.png",
+                "description": {
+                    "en": "...",
+                    "zh": "..."
+                }
+            }
+        ],
+        "projects": [],
+        "contact": {
+            "mapCenter": [
+                -43.53,
+                172.62
+            ],
+            "mapZoom": 13
+        }
+    }
+}
