@@ -5,12 +5,28 @@ import config from "../assets/config.json";
 const I18nContext = createContext();
 
 export function I18nProvider({ children }) {
-    const defaultLocale = config.i18n.includes(navigator.language.slice(0, 2)) ? navigator.language.slice(0, 2) : 'en';
-    const [locale, setLocale] = useState(defaultLocale);
+    // 安全地获取默认语言
+    const getDefaultLocale = () => {
+        try {
+            const browserLang = typeof navigator !== 'undefined' ? navigator.language.slice(0, 2) : 'en';
+            return config.i18n.includes(browserLang) ? browserLang : 'en';
+        } catch (error) {
+            console.warn('Error getting browser language:', error);
+            return 'en';
+        }
+    };
+
+    const [locale, setLocale] = useState(getDefaultLocale);
 
     // 每次 locale 变化，可加入持久化（localStorage）
     useEffect(() => {
-        localStorage.setItem('locale', locale);
+        try {
+            if (typeof localStorage !== 'undefined') {
+                localStorage.setItem('locale', locale);
+            }
+        } catch (error) {
+            console.warn('Error saving locale to localStorage:', error);
+        }
     }, [locale]);
 
     return (

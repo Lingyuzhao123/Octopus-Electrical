@@ -4,16 +4,33 @@ import { createContext, useContext, useEffect, useState } from 'react';
 const ThemeContext = createContext();
 
 export function ThemeProvider({ children }) {
-    // 初始检测系统偏好
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    const [theme, setTheme] = useState(prefersDark ? 'dark' : 'light');
+    // 安全地检测系统偏好
+    const getInitialTheme = () => {
+        try {
+            if (typeof window !== 'undefined' && window.matchMedia) {
+                return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+            }
+            return 'light';
+        } catch (error) {
+            console.warn('Error detecting theme preference:', error);
+            return 'light';
+        }
+    };
+
+    const [theme, setTheme] = useState(getInitialTheme);
 
     // 切换主题
     const toggleTheme = () => setTheme(prev => prev === 'light' ? 'dark' : 'light');
 
     // 在 body 上挂 class
     useEffect(() => {
-        document.documentElement.classList.toggle('dark', theme === 'dark');
+        try {
+            if (typeof document !== 'undefined' && document.documentElement) {
+                document.documentElement.classList.toggle('dark', theme === 'dark');
+            }
+        } catch (error) {
+            console.warn('Error setting theme class:', error);
+        }
     }, [theme]);
 
     return (

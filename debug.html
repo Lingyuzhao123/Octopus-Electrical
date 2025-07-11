@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Debug Test</title>
+    <script>
+        console.log('Test script loaded');
+        window.addEventListener('DOMContentLoaded', function() {
+            console.log('DOM loaded');
+            document.body.innerHTML = '<h1>Debug Test Working</h1>';
+        });
+    </script>
+</head>
+<body>
+    <h1>If you see this, HTML is working</h1>
+    <div id="root">Root div exists</div>
+</body>
+</html>
