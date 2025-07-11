@@ -2,7 +2,7 @@
     "site": {
         "title": "Octopus Electrical & HVAC",
         "tagline": "Connecting Your World",
-        "logo": "/assets/logo.jpg",
+        "logo": "./assets/logo.jpg",
         "description": "Experts in house wiring and rewiring... Done once, Done right!",
         "phone": "021 024 68146"
     },
@@ -33,7 +33,7 @@
             {
                 "id": "electrical",
                 "title": "Electrical",
-                "icon": "/assets/electrical.jpg",
+                "icon": "./assets/electrical.jpg",
                 "description": {
                     "en": "...",
                     "zh": "..."
@@ -42,7 +42,7 @@
             {
                 "id": "hvac",
                 "title": "HVAC",
-                "icon": "/assets/hvac.jpg",
+                "icon": "./assets/hvac.jpg",
                 "description": {
                     "en": "...",
                     "zh": "..."
@@ -51,7 +51,7 @@
             {
                 "id": "ev",
                 "title": "EV Charger",
-                "icon": "/assets/ev.jpg",
+                "icon": "./assets/ev.jpg",
                 "description": {
                     "en": "...",
                     "zh": "..."
