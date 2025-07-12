@@ -1,6 +1,6 @@
 {
   "name": "octopus-electrical",
-  "homepage": "https://Lingyuzhao123.github.io/octopus-electrical",
+  "homepage": "https://octopuselectrical.co.nz",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -10,7 +10,7 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist --add"
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "i18next": "^25.3.2",
