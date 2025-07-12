@@ -8,6 +8,15 @@ export function I18nProvider({ children }) {
     // 安全地获取默认语言
     const getDefaultLocale = () => {
         try {
+            // 首先尝试从 localStorage 获取保存的语言设置
+            if (typeof localStorage !== 'undefined') {
+                const savedLocale = localStorage.getItem('locale');
+                if (savedLocale && config.i18n.includes(savedLocale)) {
+                    return savedLocale;
+                }
+            }
+            
+            // 如果没有保存的设置，则使用浏览器语言
             const browserLang = typeof navigator !== 'undefined' ? navigator.language.slice(0, 2) : 'en';
             return config.i18n.includes(browserLang) ? browserLang : 'en';
         } catch (error) {

@@ -32,29 +32,38 @@
         "services": [
             {
                 "id": "electrical",
-                "title": "Electrical",
+                "title": {
+                    "en": "Electrical Services",
+                    "zh": "电气服务"
+                },
                 "icon": "./assets/electrical.jpg",
                 "description": {
-                    "en": "...",
-                    "zh": "..."
+                    "en": "Professional electrical installation, maintenance, and repair services. From house wiring and rewiring to switchboard upgrades and appliance installations.",
+                    "zh": "专业电气安装、维护和维修服务。从家庭布线和重新布线到配电箱升级和家电安装。"
                 }
             },
             {
                 "id": "hvac",
-                "title": "HVAC",
+                "title": {
+                    "en": "HVAC Systems",
+                    "zh": "暖通空调系统"
+                },
                 "icon": "./assets/hvac.jpg",
                 "description": {
-                    "en": "...",
-                    "zh": "..."
+                    "en": "Heating, ventilation, and air conditioning installation and maintenance. Keep your home comfortable year-round with our expert HVAC services.",
+                    "zh": "暖通空调安装和维护服务。通过我们专业的暖通空调服务，让您的家一年四季都舒适宜人。"
                 }
             },
             {
                 "id": "ev",
-                "title": "EV Charger",
+                "title": {
+                    "en": "EV Charger Installation",
+                    "zh": "电动汽车充电桩安装"
+                },
                 "icon": "./assets/ev.jpg",
                 "description": {
-                    "en": "...",
-                    "zh": "..."
+                    "en": "Electric vehicle charger installation for your home or business. Fast, reliable, and safe charging solutions for the future of transportation.",
+                    "zh": "为您的家庭或企业提供电动汽车充电桩安装。快速、可靠、安全的充电解决方案，迎接交通运输的未来。"
                 }
             }
         ],
