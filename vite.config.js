@@ -1,18 +1,36 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
+import tailwindcss from 'tailwindcss';
+import autoprefixer from 'autoprefixer';
 
 // https://vite.dev/config/
 export default defineConfig({
+  define: {
+  },
+  publicDir: 'public',
   plugins: [react()],
+  css: {
+    postcss: {
+      plugins: [
+        tailwindcss,
+        autoprefixer,
+      ],
+    },
+  },
   build: {
-    outDir: 'dist',
-    assetsDir: 'assets',
+    chunkSizeWarningLimit: 500,
     rollupOptions: {
       output: {
-        manualChunks: {
-          vendor: ['react', 'react-dom']
-        }
-      }
-    }
-  }
+        manualChunks(id) {
+          if (id.includes("node_modules")) {
+            if (id.includes("react")) return "react";
+            if (id.includes("leaflet")) return "leaflet";
+            if (id.includes("gsap")) return "gsap";
+            if (id.includes("three")) return "three";
+            return "vendor";
+          }
+        },
+      },
+    },
+  },
 })
