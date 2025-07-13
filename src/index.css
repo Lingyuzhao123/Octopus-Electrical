@@ -12,6 +12,102 @@
   font-variant-numeric: tabular-nums;
 }
 
+/* 最小宽度支持和响应式基础设置 */
+html, body {
+  min-width: 320px; /* 最小支持 iPhone 5/SE 的宽度 */
+  overflow-x: auto; /* 允许水平滚动以防内容过宽 */
+}
+
+.container {
+  min-width: 320px;
+  max-width: 100%;
+}
+
+/* 确保所有主要容器都有最小宽度 */
+.min-w-mobile {
+  min-width: 320px;
+}
+
+/* 移动端专用的安全区域处理 */
+@supports (padding: max(0px)) {
+  .safe-area-inset-x {
+    padding-left: max(1rem, env(safe-area-inset-left));
+    padding-right: max(1rem, env(safe-area-inset-right));
+  }
+}
+
+/* 自定义响应式断点辅助类 */
+/* 超小屏幕: 320px - 479px (小手机) */
+@media (max-width: 479px) {
+  .xs\:text-xs { font-size: 0.75rem; }
+  .xs\:p-2 { padding: 0.5rem; }
+  .xs\:space-x-2 > :not([hidden]) ~ :not([hidden]) { margin-left: 0.5rem; }
+  .xs\:h-8 { height: 2rem; }
+  .xs\:w-8 { width: 2rem; }
+  .xs\:text-sm { font-size: 0.875rem; }
+}
+
+/* 小屏幕: 480px - 767px (大手机) */
+@media (min-width: 480px) and (max-width: 767px) {
+  .mobile\:text-sm { font-size: 0.875rem; }
+  .mobile\:p-3 { padding: 0.75rem; }
+  .mobile\:space-x-3 > :not([hidden]) ~ :not([hidden]) { margin-left: 0.75rem; }
+}
+
+/* 平板竖屏: 768px - 1023px (iPad 竖屏) */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .tablet\:text-lg { font-size: 1.125rem; }
+  .tablet\:p-4 { padding: 1rem; }
+  .tablet\:space-x-4 > :not([hidden]) ~ :not([hidden]) { margin-left: 1rem; }
+  .tablet\:grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .tablet\:max-w-4xl { max-width: 56rem; }
+}
+
+/* 平板横屏/小桌面: 1024px - 1439px (iPad 横屏, 小笔记本) */
+@media (min-width: 1024px) and (max-width: 1439px) {
+  .desktop-sm\:text-xl { font-size: 1.25rem; }
+  .desktop-sm\:p-6 { padding: 1.5rem; }
+  .desktop-sm\:space-x-6 > :not([hidden]) ~ :not([hidden]) { margin-left: 1.5rem; }
+  .desktop-sm\:grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .desktop-sm\:max-w-6xl { max-width: 72rem; }
+}
+
+/* 标准桌面: 1440px - 1919px (1080p 显示器) */
+@media (min-width: 1440px) and (max-width: 1919px) {
+  .desktop\:text-2xl { font-size: 1.5rem; }
+  .desktop\:p-8 { padding: 2rem; }
+  .desktop\:space-x-8 > :not([hidden]) ~ :not([hidden]) { margin-left: 2rem; }
+  .desktop\:grid-cols-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .desktop\:max-w-7xl { max-width: 80rem; }
+}
+
+/* 2K显示器: 1920px - 2559px */
+@media (min-width: 1920px) and (max-width: 2559px) {
+  .desktop-2k\:text-3xl { font-size: 1.875rem; }
+  .desktop-2k\:text-4xl { font-size: 2.25rem; }
+  .desktop-2k\:p-10 { padding: 2.5rem; }
+  .desktop-2k\:space-x-10 > :not([hidden]) ~ :not([hidden]) { margin-left: 2.5rem; }
+  .desktop-2k\:max-w-8xl { max-width: 88rem; }
+  .desktop-2k\:container { max-width: 100rem; margin: 0 auto; }
+}
+
+/* 4K显示器: 2560px+ */
+@media (min-width: 2560px) {
+  .desktop-4k\:text-4xl { font-size: 2.25rem; }
+  .desktop-4k\:text-5xl { font-size: 3rem; }
+  .desktop-4k\:text-6xl { font-size: 3.75rem; }
+  .desktop-4k\:p-12 { padding: 3rem; }
+  .desktop-4k\:p-16 { padding: 4rem; }
+  .desktop-4k\:space-x-12 > :not([hidden]) ~ :not([hidden]) { margin-left: 3rem; }
+  .desktop-4k\:max-w-9xl { max-width: 120rem; }
+  .desktop-4k\:container { max-width: 140rem; margin: 0 auto; }
+}
+
+/* 高DPI显示器优化 */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .high-dpi\:border-0\.5 { border-width: 0.5px; }
+}
+
 /* 滚动条样式优化 */
 body::-webkit-scrollbar {
   width: 8px;

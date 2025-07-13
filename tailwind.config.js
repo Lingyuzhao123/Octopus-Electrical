@@ -7,6 +7,15 @@ export default {
     ],
     theme: {
         extend: {
+            screens: {
+                'xs': '320px',      // 超小屏幕 (小手机)
+                'mobile': '480px',  // 大手机
+                'tablet': '768px',  // 平板竖屏
+                'desktop-sm': '1024px',  // 平板横屏/小桌面
+                'desktop': '1440px',     // 标准桌面 1080p
+                'desktop-2k': '1920px',  // 2K 显示器
+                'desktop-4k': '2560px',  // 4K 显示器
+            },
             colors: {
                 // 自定义紫色主题
                 brand: {
@@ -27,6 +36,23 @@ export default {
                     secondary: '#4b5563',   // 中灰色副文本
                     muted: '#6b7280',       // 浅灰色辅助文本
                 }
+            },
+            maxWidth: {
+                '8xl': '88rem',   // 1408px - 2K 显示器容器
+                '9xl': '120rem',  // 1920px - 4K 显示器容器
+            },
+            spacing: {
+                '18': '4.5rem',
+                '22': '5.5rem',
+                '88': '22rem',
+                '112': '28rem',
+                '128': '32rem',
+                '144': '36rem',
+            },
+            fontSize: {
+                '2xs': ['0.625rem', { lineHeight: '0.75rem' }],
+                '8xl': ['6rem', { lineHeight: '1' }],
+                '9xl': ['8rem', { lineHeight: '1' }],
             },
             backgroundImage: {
                 'gradient-brand': 'linear-gradient(135deg, #f3f1ff 0%, #ede9fe 100%)',
