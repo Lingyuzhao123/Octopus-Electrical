@@ -6,10 +6,10 @@ export default function Services({ data }) {
     if (!data || !Array.isArray(data)) return null;
 
     return (
-        <div className="min-h-screen bg-brand-50 dark:bg-gray-800 py-16">
+        <div className="min-h-screen bg-brand-50 dark:bg-gray-800 pt-24 pb-16">
             <div className="container mx-auto px-4">
                 {/* 页面标题 */}
-                <div className="text-center mb-16">
+                <div className="text-center mb-16 mt-8">
                     <h2 className="font-heading text-4xl md:text-5xl font-bold text-brand-700 dark:text-white mb-4 tracking-wide">
                         {locale === 'zh' ? '我们的服务' : 'Our Services'}
                     </h2>

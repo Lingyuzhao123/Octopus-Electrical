@@ -6,7 +6,7 @@ export default function Home({ data, onNavClick }) {
     if (!data) return null;
 
     return (
-        <div className="min-h-screen bg-gradient-brand dark:bg-gray-900 flex items-center">
+        <div className="min-h-screen bg-gradient-brand dark:bg-gray-900 flex items-center pt-24 pb-16">
             <div className="container mx-auto px-4 py-20">
                 <div className="text-center max-w-5xl mx-auto">
                     {/* 主标题 */}
@@ -33,20 +33,6 @@ export default function Home({ data, onNavClick }) {
                         >
                             📞 021 024 68146
                         </a>
-                    </div>
-                    
-                    {/* 滚动提示 */}
-                    <div className="mt-16 flex justify-center animate-fade-in-delay-3">
-                        <div className="flex flex-col items-center text-brand-600 dark:text-brand-400">
-                            <span className="text-sm font-medium mb-2 tracking-wide">
-                                {locale === 'zh' ? '向下滚动查看更多' : 'Scroll down for more'}
-                            </span>
-                            <div className="mouse-scroll">
-                                <svg className="w-6 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-                                </svg>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>

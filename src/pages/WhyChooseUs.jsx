@@ -4,21 +4,23 @@ export default function WhyChooseUs({ onNavClick }) {
     const { locale } = useI18n();
 
     return (
-        <div className="min-h-screen bg-brand-50 dark:bg-gray-800 py-20">
+        <div className="min-h-screen bg-brand-50 dark:bg-gray-800 pt-24 pb-16">
             <div className="container mx-auto px-4">
                 <div className="text-center max-w-6xl mx-auto">
                     {/* 主标题 */}
-                    <h2 className="font-heading text-4xl md:text-5xl font-bold text-brand-700 dark:text-white mb-6 tracking-wide animate-fade-in">
-                        {locale === 'zh' ? '为什么选择我们' : 'Why Choose Us'}
-                    </h2>
-                    
-                    {/* 副标题 */}
-                    <p className="font-sans text-lg md:text-xl text-text-primary dark:text-gray-300 mb-16 max-w-3xl mx-auto leading-relaxed animate-fade-in-delay-1">
-                        {locale === 'zh' 
-                            ? '我们是新西兰认证的专业电工团队，致力于为您提供最优质的电气和暖通空调服务' 
-                            : 'We are certified professional electricians in New Zealand, committed to providing you with the highest quality electrical and HVAC services'
-                        }
-                    </p>
+                    <div className="mt-8">
+                        <h2 className="font-heading text-4xl md:text-5xl font-bold text-brand-700 dark:text-white mb-6 tracking-wide animate-fade-in">
+                            {locale === 'zh' ? '为什么选择我们' : 'Why Choose Us'}
+                        </h2>
+                        
+                        {/* 副标题 */}
+                        <p className="font-sans text-lg md:text-xl text-text-primary dark:text-gray-300 mb-16 max-w-3xl mx-auto leading-relaxed animate-fade-in-delay-1">
+                            {locale === 'zh' 
+                                ? '我们是新西兰认证的专业电工团队，致力于为您提供最优质的电气和暖通空调服务' 
+                                : 'We are certified professional electricians in New Zealand, committed to providing you with the highest quality electrical and HVAC services'
+                            }
+                        </p>
+                    </div>
                     
                     {/* 认证标志 - 突出显示 */}
                     <div className="mb-16 flex justify-center animate-fade-in-delay-2">

@@ -21,11 +21,11 @@ export default function Contact({ data }) {
     const { locale } = useI18n();
 
     return (
-        <div className="min-h-screen bg-brand-50 dark:bg-gray-800 py-16">
+        <div className="min-h-screen bg-brand-50 dark:bg-gray-800 pt-24 pb-16">
             <FixLeafletIcons />
             <div className="container mx-auto px-4">
                 {/* 页面标题 */}
-                <div className="text-center mb-16">
+                <div className="text-center mb-16 mt-8">
                     <h2 className="font-heading text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4 tracking-wide">
                         {locale === 'zh' ? '联系我们' : 'Contact Us'}
                     </h2>

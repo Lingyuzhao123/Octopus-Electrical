@@ -3,7 +3,7 @@ import config from "../assets/config.json";
 import { useTheme } from "../hooks/useTheme";
 import { useI18n } from "../hooks/useI18n";
 
-export default function Header({ onNavClick, currentSection }) {
+export default function Header({ onNavClick }) {
     const [open, setOpen] = useState(false);
     const { theme, toggleTheme } = useTheme();
     const { locale, setLocale } = useI18n();
@@ -58,8 +58,7 @@ export default function Header({ onNavClick, currentSection }) {
                     }`}
                 >
                     <ul className="flex flex-col md:flex-row md:items-center md:space-x-3 p-4 md:p-0">
-                        {["home", "services", "projects", "contact"].map((sec, index) => {
-                            const isActive = currentSection === index;
+                        {["home", "services", "projects", "why-choose-us", "contact"].map((sec) => {
                             return (
                                 <li key={sec}>
                                     <button
@@ -67,17 +66,10 @@ export default function Header({ onNavClick, currentSection }) {
                                             onNavClick(sec);
                                             setOpen(false);
                                         }}
-                                        className={`font-sans block py-4 px-8 text-xl font-semibold tracking-wide w-full text-left md:text-center transition-all duration-300 rounded-lg relative overflow-hidden ${
-                                            isActive 
-                                                ? 'text-brand-600 dark:text-brand-400 bg-brand-50 dark:bg-brand-900/20' 
-                                                : 'text-brand-700 dark:text-white hover:text-brand-600 dark:hover:text-brand-300 hover:bg-brand-50 dark:hover:bg-gray-700'
-                                        }`}
+                                        className="font-sans block py-4 px-8 text-xl font-semibold tracking-wide w-full text-left md:text-center transition-all duration-300 rounded-lg relative overflow-hidden text-brand-700 dark:text-white hover:text-brand-600 dark:hover:text-brand-300 hover:bg-brand-50 dark:hover:bg-gray-700"
                                         style={{ minWidth: '120px' }}
                                     >
                                         {config.navigation[sec][locale]}
-                                        {isActive && (
-                                            <div className="absolute inset-0 border-2 border-brand-400 rounded-lg animate-electric-border"></div>
-                                        )}
                                     </button>
                                 </li>
                             );

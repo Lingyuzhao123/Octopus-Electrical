@@ -2,32 +2,22 @@
 @tailwind components;
 @tailwind utilities;
 
-/* 全屏滚动样式 */
-html, body {
-  overflow: hidden;
-}
-
 /* 滚动条样式优化 */
-.custom-scrollbar::-webkit-scrollbar {
-  width: 6px;
+body::-webkit-scrollbar {
+  width: 8px;
 }
 
-.custom-scrollbar::-webkit-scrollbar-track {
-  background: transparent;
+body::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.1);
 }
 
-.custom-scrollbar::-webkit-scrollbar-thumb {
+body::-webkit-scrollbar-thumb {
   background: rgba(139, 92, 246, 0.3);
-  border-radius: 3px;
+  border-radius: 4px;
 }
 
-.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+body::-webkit-scrollbar-thumb:hover {
   background: rgba(139, 92, 246, 0.5);
-}
-
-/* 平滑过渡动画 */
-.section-transition {
-  transition: transform 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 /* 滚动提示动画 */
@@ -48,21 +38,6 @@ html, body {
 
 .mouse-scroll {
   animation: mouseScroll 2s infinite;
-}
-
-/* 禁用文字选择以避免拖拽问题 */
-.no-select {
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
-
-/* 确保section内容可以滚动 */
-.section-content {
-  height: 100vh;
-  overflow-y: auto;
-  overflow-x: hidden;
 }
 
 /* 导航高亮边框动画 - 类似电流效果 */

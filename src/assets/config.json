@@ -29,6 +29,10 @@
             "en": "Projects",
             "zh": "案例"
         },
+        "why-choose-us": {
+            "en": "Why Us",
+            "zh": "选择我们"
+        },
         "contact": {
             "en": "Contact",
             "zh": "联系"
@@ -45,7 +49,7 @@
     "sections": {
         "home": {
             "heading": {
-                "en": "Experts in house wiring and rewiring, switchboard upgrade, appliance installation, HVAC and EV charger installation.",
+                "en": "Experts in wiring, switchboards, appliances, HVAC, and EV charger installations.",
                 "zh": "专业提供家用电路布线与重布线、配电箱升级、家电安装、暖通空调及电动汽车充电桩安装。"
             },
             "subheading": {
