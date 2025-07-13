@@ -10,12 +10,12 @@ export default function Home({ data, onNavClick }) {
             <div className="container mx-auto px-4 py-20">
                 <div className="text-center max-w-5xl mx-auto">
                     {/* 主标题 */}
-                    <h1 className="font-heading text-5xl md:text-7xl font-bold text-brand-700 dark:text-gray-100 mb-8 leading-tight tracking-wide animate-fade-in">
+                    <h1 className="font-heading text-5xl md:text-6xl font-bold text-brand-700 dark:text-gray-100 mb-8 leading-tight md:leading-tight tracking-wide animate-fade-in">
                         {data.heading[locale]}
                     </h1>
                     
                     {/* 副标题 */}
-                    <p className="font-sans text-xl md:text-2xl text-text-primary dark:text-gray-300 mb-12 leading-relaxed max-w-3xl mx-auto tracking-wide animate-fade-in-delay-1">
+                    <p className="font-sans text-xl md:text-2xl text-text-primary dark:text-gray-300 mb-12 leading-snug max-w-3xl mx-auto tracking-wide animate-fade-in-delay-1">
                         {data.subheading[locale]}
                     </p>
                     
@@ -29,9 +29,9 @@ export default function Home({ data, onNavClick }) {
                         </button>
                         <a 
                             href="tel:021024681460" 
-                            className="font-sans bg-white dark:bg-gray-700 hover:bg-brand-50 dark:hover:bg-gray-600 text-brand-700 dark:text-white font-semibold py-4 px-10 rounded-xl transition-all duration-300 text-lg shadow-xl hover:shadow-2xl border border-brand-200 dark:border-gray-600 transform hover:-translate-y-1 tracking-wide"
+                            className="font-sans bg-white dark:bg-gray-700 hover:bg-brand-50 dark:hover:bg-gray-600 text-brand-700 dark:text-white font-semibold py-4 px-10 rounded-xl transition-all duration-300 text-2xl shadow-xl hover:shadow-2xl border border-brand-200 dark:border-gray-600 transform hover:-translate-y-1 tracking-wide"
                         >
-                            📞 021 024 68146
+                            📞 <span className="font-georgia">021 024 68146</span>
                         </a>
                     </div>
                 </div>

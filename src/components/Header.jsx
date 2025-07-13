@@ -16,22 +16,23 @@ export default function Header({ onNavClick }) {
                     <img 
                         src={config.site.logo} 
                         alt={config.site.title[locale]} 
-                        className="h-16 w-16 object-contain rounded-md"
+                        className="h-12 w-12 md:h-16 md:w-16 object-contain rounded-md"
                         style={{ 
-                            height: '64px', 
-                            width: '64px',
+                            height: 'clamp(48px, 4vw, 64px)', 
+                            width: 'clamp(48px, 4vw, 64px)',
                             maxHeight: '64px',
                             maxWidth: '64px'
                         }}
                     />
-                    <span className="ml-4 font-heading font-bold text-3xl text-brand-700 dark:text-white">
-                        {config.site.title[locale]}
+                    <span className="ml-2 md:ml-4 font-heading font-bold text-xl md:text-3xl text-brand-700 dark:text-white">
+                        <span className="hidden sm:inline">{config.site.title[locale]}</span>
+                        <span className="sm:hidden">{config.site.title[locale].split(' ')[0]}</span>
                     </span>
                 </button>
 
                 {/* 汉堡按钮 - 窄屏 */}
                 <button
-                    className="md:hidden p-2 rounded focus:outline-none focus:ring"
+                    className="lg:hidden p-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-500 bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors"
                     onClick={() => setOpen((o) => !o)}
                     aria-label="Toggle menu"
                 >
@@ -53,11 +54,11 @@ export default function Header({ onNavClick }) {
 
                 {/* 菜单项 */}
                 <nav
-                    className={`absolute top-full left-0 w-full bg-white dark:bg-gray-800 shadow-lg md:static md:w-auto md:shadow-none transition-all duration-300 ease-in-out ${
-                        open ? "translate-y-0 opacity-100" : "-translate-y-full opacity-0 md:translate-y-0 md:opacity-100"
+                    className={`absolute top-full left-0 w-full bg-white dark:bg-gray-800 shadow-lg border-t border-gray-200 dark:border-gray-700 lg:static lg:w-auto lg:shadow-none lg:border-0 transition-all duration-300 ease-in-out z-40 ${
+                        open ? "translate-y-0 opacity-100" : "-translate-y-full opacity-0 lg:translate-y-0 lg:opacity-100"
                     }`}
                 >
-                    <ul className="flex flex-col md:flex-row md:items-center md:space-x-3 p-4 md:p-0">
+                    <ul className="flex flex-col lg:flex-row lg:items-center lg:space-x-3 p-4 lg:p-0">
                         {["home", "services", "projects", "why-choose-us", "contact"].map((sec) => {
                             return (
                                 <li key={sec}>
@@ -66,8 +67,8 @@ export default function Header({ onNavClick }) {
                                             onNavClick(sec);
                                             setOpen(false);
                                         }}
-                                        className="font-sans block py-4 px-8 text-xl font-semibold tracking-wide w-full text-left md:text-center transition-all duration-300 rounded-lg relative overflow-hidden text-brand-700 dark:text-white hover:text-brand-600 dark:hover:text-brand-300 hover:bg-brand-50 dark:hover:bg-gray-700"
-                                        style={{ minWidth: '120px' }}
+                                        className="font-sans block py-3 px-4 lg:py-4 lg:px-8 text-lg lg:text-xl font-semibold tracking-wide w-full text-left lg:text-center transition-all duration-300 rounded-lg relative overflow-hidden text-brand-700 dark:text-white hover:text-brand-600 dark:hover:text-brand-300 hover:bg-brand-50 dark:hover:bg-gray-700 border-b border-gray-100 dark:border-gray-600 lg:border-0"
+                                        style={{ minWidth: 'auto', 'lg:minWidth': '120px' }}
                                     >
                                         {config.navigation[sec][locale]}
                                     </button>
@@ -75,7 +76,7 @@ export default function Header({ onNavClick }) {
                             );
                         })}
                         {/* 主题切换 */}
-                        <li className="mt-2 md:mt-0">
+                        <li className="mt-2 lg:mt-0 flex justify-center lg:block">
                             <button 
                                 onClick={toggleTheme} 
                                 className="p-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg transition-colors text-gray-700 dark:text-gray-300 hover:text-brand-600 dark:hover:text-brand-400"
@@ -93,7 +94,7 @@ export default function Header({ onNavClick }) {
                             </button>
                         </li>
                         {/* 语言切换 */}
-                        <li className="mt-2 md:mt-0">
+                        <li className="mt-2 lg:mt-0 flex justify-center lg:block">
                             <button 
                                 onClick={() => setLocale(locale === 'en' ? 'zh' : 'en')}
                                 className="p-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg transition-colors text-gray-700 dark:text-gray-300 hover:text-brand-600 dark:hover:text-brand-400 flex items-center"

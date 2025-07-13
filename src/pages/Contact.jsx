@@ -26,10 +26,10 @@ export default function Contact({ data }) {
             <div className="container mx-auto px-4">
                 {/* 页面标题 */}
                 <div className="text-center mb-16 mt-8">
-                    <h2 className="font-heading text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4 tracking-wide">
+                    <h2 className="font-heading text-4xl md:text-5xl font-bold text-brand-700 dark:text-white mb-4 tracking-wide">
                         {locale === 'zh' ? '联系我们' : 'Contact Us'}
                     </h2>
-                    <p className="font-sans text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto leading-relaxed">
+                    <p className="font-sans text-xl text-text-primary dark:text-gray-300 max-w-2xl mx-auto leading-relaxed">
                         {locale === 'zh' 
                             ? '准备好为您的项目提供专业的电气和暖通空调服务' 
                             : 'Ready to provide professional electrical and HVAC services for your project'
@@ -41,7 +41,7 @@ export default function Contact({ data }) {
                     {/* 联系信息 */}
                     <div className="space-y-12 h-96 flex flex-col justify-between">
                         <div>
-                            <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-8">
+                            <h3 className="text-2xl font-bold text-brand-700 dark:text-white mb-8">
                                 {locale === 'zh' ? '联系方式' : 'Get in Touch'}
                             </h3>
                             
@@ -53,16 +53,16 @@ export default function Contact({ data }) {
                                     </svg>
                                 </div>
                                 <div>
-                                    <h4 className="font-semibold text-gray-900 dark:text-white mb-2">
+                                    <h4 className="font-semibold text-brand-700 dark:text-white mb-2">
                                         {locale === 'zh' ? '电话咨询' : 'Phone'}
                                     </h4>
                                     <a 
                                         href="tel:021024681460" 
-                                        className="text-blue-600 dark:text-blue-400 hover:underline text-lg"
+                                        className="text-blue-600 dark:text-blue-400 hover:underline text-lg font-georgia tracking-wider"
                                     >
                                         021 024 68146
                                     </a>
-                                    <p className="text-gray-600 dark:text-gray-300 text-sm mt-2">
+                                    <p className="text-text-secondary dark:text-gray-400 text-sm mt-2">
                                         {locale === 'zh' ? '免费报价，随时致电' : 'Call for free quote'}
                                     </p>
                                 </div>
@@ -77,13 +77,13 @@ export default function Contact({ data }) {
                                     </svg>
                                 </div>
                                 <div>
-                                    <h4 className="font-semibold text-gray-900 dark:text-white mb-2">
+                                    <h4 className="font-semibold text-brand-700 dark:text-white mb-2">
                                         {locale === 'zh' ? '服务区域' : 'Service Area'}
                                     </h4>
-                                    <p className="text-gray-600 dark:text-gray-300">
+                                    <p className="text-text-secondary dark:text-gray-400">
                                         {locale === 'zh' 
-                                            ? '基督城及周边地区' 
-                                            : 'Christchurch and surrounding areas'
+                                            ? '惠灵顿及周边地区' 
+                                            : 'Wellington and surrounding areas'
                                         }
                                     </p>
                                 </div>
@@ -97,10 +97,10 @@ export default function Contact({ data }) {
                                     </svg>
                                 </div>
                                 <div>
-                                    <h4 className="font-semibold text-gray-900 dark:text-white mb-2">
+                                    <h4 className="font-semibold text-brand-700 dark:text-white mb-2">
                                         {locale === 'zh' ? '工作时间' : 'Working Hours'}
                                     </h4>
-                                    <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
+                                    <p className="text-text-secondary dark:text-gray-400 leading-relaxed font-georgia">
                                         {locale === 'zh' 
                                             ? '周一至周五: 8:00 - 17:00\n周末: 预约服务' 
                                             : 'Mon - Fri: 8:00 AM - 5:00 PM\nWeekends: By appointment'
@@ -113,7 +113,7 @@ export default function Contact({ data }) {
 
                     {/* 地图区域 */}
                     <div>
-                        <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
+                        <h3 className="text-2xl font-bold text-brand-700 dark:text-white mb-6">
                             {locale === 'zh' ? '服务位置' : 'Service Location'}
                         </h3>
                         <div className="bg-white dark:bg-gray-900 rounded-lg overflow-hidden shadow-lg">
@@ -130,10 +130,10 @@ export default function Contact({ data }) {
                                     />
                                     <Marker position={data.mapCenter}>
                                         <Popup>
-                                            <div className="text-center">
+                                            <div className="text-center leading-relaxed text-xl">
                                                 <strong>Octopus Electrical & HVAC</strong><br />
                                                 {locale === 'zh' ? '服务区域' : 'Service Area'}<br />
-                                                📞 021 024 68146
+                                                <span className="font-georgia">📞 021 024 68146</span>
                                             </div>
                                         </Popup>
                                     </Marker>
@@ -147,7 +147,7 @@ export default function Contact({ data }) {
                                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                                             </svg>
                                         </div>
-                                        <p className="text-gray-600 dark:text-gray-300">
+                                        <p className="text-text-secondary dark:text-gray-400">
                                             {locale === 'zh' ? '地图加载中...' : 'Loading map...'}
                                         </p>
                                     </div>

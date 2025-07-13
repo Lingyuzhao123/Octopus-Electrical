@@ -2,6 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
+/* 格鲁吉亚字体用于数字和电话号码 */
+.font-georgia {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.font-georgia-mono {
+  font-family: 'Courier New', Georgia, monospace;
+  font-variant-numeric: tabular-nums;
+}
+
 /* 滚动条样式优化 */
 body::-webkit-scrollbar {
   width: 8px;

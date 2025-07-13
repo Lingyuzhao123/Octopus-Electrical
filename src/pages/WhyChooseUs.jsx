@@ -26,7 +26,7 @@ export default function WhyChooseUs({ onNavClick }) {
                     <div className="mb-16 flex justify-center animate-fade-in-delay-2">
                         <div className="bg-white dark:bg-gray-700 rounded-2xl p-8 shadow-2xl max-w-sm mx-auto transform hover:scale-105 transition-transform duration-300 animate-pulse-slow">
                             <img 
-                                src="./assets/quality-assured-badge.png" 
+                                src="/assets/quality-assured-badge.jpg" 
                                 alt="Quality Assured Master Electrician"
                                 className="h-32 w-auto mx-auto mb-4 animate-sparkle"
                                 onError={(e) => {
