@@ -52,11 +52,83 @@ export default function Projects({ data }) {
                         </div>
                     </div>
                 ) : (
-                    // 如果有项目数据，在这里渲染项目列表
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                        {data.map((project, index) => (
-                            <div key={index} className="bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden">
-                                {/* 项目内容将在这里渲染 */}
+                    // 项目卡片网格
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+                        {data.map((project) => (
+                            <div key={project.id} className="bg-white dark:bg-gray-900 rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
+                                {/* 项目图片 */}
+                                <div className="h-48 bg-gray-200 dark:bg-gray-700 overflow-hidden">
+                                    <img 
+                                        src={project.image} 
+                                        alt={project.title[locale] || project.title.en}
+                                        className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                                        onError={(e) => {
+                                            e.target.style.display = 'none';
+                                            e.target.nextSibling.style.display = 'flex';
+                                        }}
+                                    />
+                                    {/* fallback图标 */}
+                                    <div className="w-full h-full bg-gray-300 dark:bg-gray-600 hidden items-center justify-center text-4xl">
+                                        {project.category === 'electrical' && '⚡'}
+                                        {project.category === 'hvac' && '🏠'}
+                                        {project.category === 'ev' && '🔌'}
+                                    </div>
+                                </div>
+                                
+                                {/* 项目内容 */}
+                                <div className="p-6">
+                                    {/* 项目分类标签 */}
+                                    <div className="mb-3">
+                                        <span className={`inline-block px-3 py-1 rounded-full text-xs font-semibold ${
+                                            project.category === 'electrical' ? 'bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200' :
+                                            project.category === 'hvac' ? 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200' :
+                                            'bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-200'
+                                        }`}>
+                                            {project.category === 'electrical' && (locale === 'zh' ? '电气' : 'Electrical')}
+                                            {project.category === 'hvac' && (locale === 'zh' ? '暖通' : 'HVAC')}
+                                            {project.category === 'ev' && (locale === 'zh' ? '充电桩' : 'EV Charger')}
+                                        </span>
+                                    </div>
+                                    
+                                    <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">
+                                        {project.title[locale] || project.title.en}
+                                    </h3>
+                                    
+                                    <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-4">
+                                        {project.description[locale] || project.description.en}
+                                    </p>
+                                    
+                                    {/* 项目信息 */}
+                                    <div className="text-sm text-gray-500 dark:text-gray-400 mb-4">
+                                        <div className="flex items-center mb-1">
+                                            <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                                            </svg>
+                                            {project.location}
+                                        </div>
+                                        <div className="flex items-center">
+                                            <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                            </svg>
+                                            {project.duration}
+                                        </div>
+                                    </div>
+                                    
+                                    {/* 查看详情按钮 */}
+                                    <button 
+                                        className="inline-flex items-center text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 font-semibold transition-colors duration-200"
+                                        onClick={() => {
+                                            // TODO: 实现项目详情页面导航
+                                            alert(locale === 'zh' ? '项目详情页面即将上线' : 'Project details page coming soon');
+                                        }}
+                                    >
+                                        {locale === 'zh' ? '查看详情' : 'View Details'}
+                                        <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                                        </svg>
+                                    </button>
+                                </div>
                             </div>
                         ))}
                     </div>

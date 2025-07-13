@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import config from "../assets/config.json";
 import { useTheme } from "../hooks/useTheme";
 import { useI18n } from "../hooks/useI18n";
@@ -12,7 +12,7 @@ export default function Header() {
         <header className="sticky top-0 z-50 bg-white dark:bg-gray-800 shadow-md">
             <div className="container mx-auto flex items-center justify-between p-4">
                 {/* Logo */}
-                <a href="#landing" className="flex items-center flex-shrink-0">
+                <a href="#home" className="flex items-center flex-shrink-0">
                     <img 
                         src={config.site.logo} 
                         alt={config.site.title} 
@@ -25,7 +25,7 @@ export default function Header() {
                         }}
                     />
                     <span className="ml-3 font-bold text-xl text-gray-800 dark:text-white">
-                        {config.site.title}
+                        {config.site.title[locale]}
                     </span>
                 </a>
 
@@ -58,14 +58,14 @@ export default function Header() {
                     }`}
                 >
                     <ul className="flex flex-col md:flex-row md:items-center md:space-x-6 p-4 md:p-0">
-                        {["landing", "services", "projects", "contact"].map((sec) => (
+                        {["home", "services", "projects", "contact"].map((sec) => (
                             <li key={sec}>
                                 <a
                                     href={`#${sec}`}
                                     className="block py-2 text-gray-800 dark:text-white hover:underline"
                                     onClick={() => setOpen(false)}
                                 >
-                                    {sec.charAt(0).toUpperCase() + sec.slice(1)}
+                                    {config.navigation[sec][locale]}
                                 </a>
                             </li>
                         ))}

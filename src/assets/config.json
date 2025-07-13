@@ -1,10 +1,37 @@
 {
     "site": {
-        "title": "Octopus Electrical & HVAC",
-        "tagline": "Connecting Your World",
+        "title": {
+            "en": "Octopus Electrical & HVAC",
+            "zh": "章鱼电气暖通"
+        },
+        "tagline": {
+            "en": "Connecting Your World",
+            "zh": "连接您的世界"
+        },
         "logo": "./assets/logo.jpg",
-        "description": "Experts in house wiring and rewiring... Done once, Done right!",
+        "description": {
+            "en": "Experts in house wiring and rewiring... Done once, Done right!",
+            "zh": "专业电气服务，一次到位！"
+        },
         "phone": "021 024 68146"
+    },
+    "navigation": {
+        "home": {
+            "en": "Home",
+            "zh": "首页"
+        },
+        "services": {
+            "en": "Services",
+            "zh": "服务"
+        },
+        "projects": {
+            "en": "Projects",
+            "zh": "案例"
+        },
+        "contact": {
+            "en": "Contact",
+            "zh": "联系"
+        }
     },
     "i18n": [
         "en",
@@ -15,7 +42,7 @@
         "dark"
     ],
     "sections": {
-        "landing": {
+        "home": {
             "heading": {
                 "en": "Experts in house wiring and rewiring, switchboard upgrade, appliance installation, HVAC and EV charger installation.",
                 "zh": "专业提供家用电路布线与重布线、配电箱升级、家电安装、暖通空调及电动汽车充电桩安装。"
@@ -67,11 +94,102 @@
                 }
             }
         ],
-        "projects": [],
+        "projects": [
+            {
+                "id": "residential-rewiring",
+                "title": {
+                    "en": "Complete House Rewiring",
+                    "zh": "全屋重新布线"
+                },
+                "image": "https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?w=800&h=600&fit=crop",
+                "description": {
+                    "en": "Complete electrical rewiring for a 4-bedroom family home in Christchurch. Updated to modern standards with new switchboard.",
+                    "zh": "基督城一栋4居室家庭住宅的完整电气重新布线。更新到现代标准，配备新的配电箱。"
+                },
+                "category": "electrical",
+                "location": "Christchurch",
+                "duration": "5 days"
+            },
+            {
+                "id": "commercial-hvac",
+                "title": {
+                    "en": "Office HVAC Installation",
+                    "zh": "办公室暖通空调安装"
+                },
+                "image": "https://images.unsplash.com/photo-1558618238-fbd4c65cd10c?w=800&h=600&fit=crop",
+                "description": {
+                    "en": "Modern HVAC system installation for a 200sqm office space. Energy-efficient climate control solution.",
+                    "zh": "为200平方米办公空间安装现代暖通空调系统。节能的气候控制解决方案。"
+                },
+                "category": "hvac",
+                "location": "Christchurch CBD",
+                "duration": "3 days"
+            },
+            {
+                "id": "ev-charger-home",
+                "title": {
+                    "en": "Home EV Charger Setup",
+                    "zh": "家用电动汽车充电桩安装"
+                },
+                "image": "https://images.unsplash.com/photo-1593941707882-a5bac6861ce8?w=800&h=600&fit=crop",
+                "description": {
+                    "en": "Tesla Wall Connector installation with dedicated circuit and safety features for home garage.",
+                    "zh": "在家庭车库安装特斯拉壁挂式连接器，配备专用电路和安全功能。"
+                },
+                "category": "ev",
+                "location": "Riccarton",
+                "duration": "1 day"
+            },
+            {
+                "id": "switchboard-upgrade",
+                "title": {
+                    "en": "Switchboard Modernization",
+                    "zh": "配电箱现代化升级"
+                },
+                "image": "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=800&h=600&fit=crop",
+                "description": {
+                    "en": "Upgraded old fuse box to modern circuit breaker panel with RCD protection and additional circuits.",
+                    "zh": "将旧保险丝盒升级为带有RCD保护和额外电路的现代断路器面板。"
+                },
+                "category": "electrical",
+                "location": "Papanui",
+                "duration": "2 days"
+            },
+            {
+                "id": "restaurant-electrical",
+                "title": {
+                    "en": "Restaurant Kitchen Electrical",
+                    "zh": "餐厅厨房电气工程"
+                },
+                "image": "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800&h=600&fit=crop",
+                "description": {
+                    "en": "Complete electrical fit-out for commercial kitchen including high-power equipment connections.",
+                    "zh": "商业厨房的完整电气装修，包括大功率设备连接。"
+                },
+                "category": "electrical",
+                "location": "Addington",
+                "duration": "4 days"
+            },
+            {
+                "id": "heat-pump-installation",
+                "title": {
+                    "en": "Multi-Zone Heat Pump System",
+                    "zh": "多区域热泵系统"
+                },
+                "image": "https://images.unsplash.com/photo-1607400201889-565b1ee75f8e?w=800&h=600&fit=crop",
+                "description": {
+                    "en": "Installation of multi-zone heat pump system for whole house heating and cooling efficiency.",
+                    "zh": "安装多区域热泵系统，实现全屋高效供暖和制冷。"
+                },
+                "category": "hvac",
+                "location": "Merivale",
+                "duration": "2 days"
+            }
+        ],
         "contact": {
             "mapCenter": [
-                -43.53,
-                172.62
+                -41.1285735,
+                174.8608262
             ],
             "mapZoom": 13
         }

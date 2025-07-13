@@ -1,10 +1,28 @@
 import { useI18n } from '../hooks/useI18n';
+import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
+import 'leaflet/dist/leaflet.css';
+import { useEffect } from 'react';
+import L from 'leaflet';
+
+// 修复leaflet图标问题
+const FixLeafletIcons = () => {
+    useEffect(() => {
+        delete L.Icon.Default.prototype._getIconUrl;
+        L.Icon.Default.mergeOptions({
+            iconRetinaUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon-2x.png',
+            iconUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon.png',
+            shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-shadow.png',
+        });
+    }, []);
+    return null;
+};
 
 export default function Contact({ data }) {
     const { locale } = useI18n();
 
     return (
         <div className="min-h-screen bg-gray-50 dark:bg-gray-800 py-16">
+            <FixLeafletIcons />
             <div className="container mx-auto px-4">
                 {/* 页面标题 */}
                 <div className="text-center mb-16">
@@ -131,31 +149,43 @@ export default function Contact({ data }) {
                         <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
                             {locale === 'zh' ? '服务位置' : 'Service Location'}
                         </h3>
-                        <div className="bg-white dark:bg-gray-900 rounded-lg p-6 h-96 flex items-center justify-center">
-                            <div className="text-center">
-                                <div className="w-16 h-16 bg-gray-100 dark:bg-gray-700 rounded-full flex items-center justify-center mx-auto mb-4">
-                                    <svg className="w-8 h-8 text-gray-400 dark:text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                                    </svg>
+                        <div className="bg-white dark:bg-gray-900 rounded-lg overflow-hidden shadow-lg">
+                            {data && data.mapCenter ? (
+                                <MapContainer
+                                    center={data.mapCenter}
+                                    zoom={data.mapZoom || 13}
+                                    style={{ height: '400px', width: '100%' }}
+                                    className="rounded-lg"
+                                >
+                                    <TileLayer
+                                        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                                        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                                    />
+                                    <Marker position={data.mapCenter}>
+                                        <Popup>
+                                            <div className="text-center">
+                                                <strong>Octopus Electrical & HVAC</strong><br />
+                                                {locale === 'zh' ? '服务区域' : 'Service Area'}<br />
+                                                📞 021 024 68146
+                                            </div>
+                                        </Popup>
+                                    </Marker>
+                                </MapContainer>
+                            ) : (
+                                <div className="h-96 flex items-center justify-center">
+                                    <div className="text-center">
+                                        <div className="w-16 h-16 bg-gray-100 dark:bg-gray-700 rounded-full flex items-center justify-center mx-auto mb-4">
+                                            <svg className="w-8 h-8 text-gray-400 dark:text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                                            </svg>
+                                        </div>
+                                        <p className="text-gray-600 dark:text-gray-300">
+                                            {locale === 'zh' ? '地图加载中...' : 'Loading map...'}
+                                        </p>
+                                    </div>
                                 </div>
-                                <p className="text-gray-600 dark:text-gray-300 mb-4">
-                                    {locale === 'zh' 
-                                        ? '交互式地图即将上线' 
-                                        : 'Interactive map coming soon'
-                                    }
-                                </p>
-                                <p className="text-sm text-gray-500 dark:text-gray-400">
-                                    {locale === 'zh' 
-                                        ? '目前我们主要服务基督城及周边地区' 
-                                        : 'Currently serving Christchurch and surrounding areas'
-                                    }
-                                    <br />
-                                    {data && data.mapCenter && (
-                                        `Coordinates: ${data.mapCenter[0]}, ${data.mapCenter[1]}`
-                                    )}
-                                </p>
-                            </div>
+                            )}
                         </div>
                     </div>
                 </div>

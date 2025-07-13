@@ -1,6 +1,6 @@
 import { useI18n } from '../hooks/useI18n';
 
-export default function Landing({ data }) {
+export default function Home({ data }) {
     const { locale } = useI18n();
 
     if (!data) return null;
