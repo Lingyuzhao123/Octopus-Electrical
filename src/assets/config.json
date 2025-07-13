@@ -9,6 +9,7 @@
             "zh": "连接您的世界"
         },
         "logo": "./assets/logo.jpg",
+        "certification": "./assets/quality-assured-badge.png",
         "description": {
             "en": "Experts in house wiring and rewiring... Done once, Done right!",
             "zh": "专业电气服务，一次到位！"

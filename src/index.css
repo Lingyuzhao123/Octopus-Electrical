@@ -2,7 +2,317 @@
 @tailwind components;
 @tailwind utilities;
 
+/* 全屏滚动样式 */
+html, body {
+  overflow: hidden;
+}
+
+/* 滚动条样式优化 */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(139, 92, 246, 0.3);
+  border-radius: 3px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(139, 92, 246, 0.5);
+}
+
+/* 平滑过渡动画 */
+.section-transition {
+  transition: transform 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* 滚动提示动画 */
+@keyframes mouseScroll {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(8px);
+    opacity: 0.5;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.mouse-scroll {
+  animation: mouseScroll 2s infinite;
+}
+
+/* 禁用文字选择以避免拖拽问题 */
+.no-select {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* 确保section内容可以滚动 */
+.section-content {
+  height: 100vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+/* 导航高亮边框动画 - 类似电流效果 */
+@keyframes pulse-border {
+  0% {
+    border-color: rgba(139, 92, 246, 0.8);
+    box-shadow: 0 0 0 0 rgba(139, 92, 246, 0.4);
+  }
+  50% {
+    border-color: rgba(139, 92, 246, 1);
+    box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.2);
+  }
+  100% {
+    border-color: rgba(139, 92, 246, 0.8);
+    box-shadow: 0 0 0 0 rgba(139, 92, 246, 0.4);
+  }
+}
+
+.animate-pulse-border {
+  animation: pulse-border 2s ease-in-out infinite;
+}
+
+/* 电流边框动画 - 更真实的电流效果 */
+@keyframes electric-border {
+  0% {
+    border-color: rgba(139, 92, 246, 0.3);
+    box-shadow: 
+      0 0 5px rgba(139, 92, 246, 0.4),
+      inset 0 0 5px rgba(139, 92, 246, 0.2);
+  }
+  25% {
+    border-color: rgba(168, 85, 247, 0.6);
+    box-shadow: 
+      0 0 10px rgba(168, 85, 247, 0.6),
+      inset 0 0 10px rgba(168, 85, 247, 0.3);
+  }
+  50% {
+    border-color: rgba(196, 181, 253, 0.8);
+    box-shadow: 
+      0 0 15px rgba(196, 181, 253, 0.8),
+      inset 0 0 15px rgba(196, 181, 253, 0.4);
+  }
+  75% {
+    border-color: rgba(168, 85, 247, 0.6);
+    box-shadow: 
+      0 0 10px rgba(168, 85, 247, 0.6),
+      inset 0 0 10px rgba(168, 85, 247, 0.3);
+  }
+  100% {
+    border-color: rgba(139, 92, 246, 0.3);
+    box-shadow: 
+      0 0 5px rgba(139, 92, 246, 0.4),
+      inset 0 0 5px rgba(139, 92, 246, 0.2);
+  }
+}
+
+.animate-electric-border {
+  animation: electric-border 2s ease-in-out infinite;
+}
+
+/* 旋转光环动画 */
+@keyframes rotating-glow {
+  0% {
+    box-shadow: 
+      0 0 5px rgba(139, 92, 246, 0.4),
+      0 0 10px rgba(139, 92, 246, 0.3),
+      0 0 15px rgba(139, 92, 246, 0.2);
+    transform: rotate(0deg);
+  }
+  50% {
+    box-shadow: 
+      0 0 10px rgba(168, 85, 247, 0.6),
+      0 0 20px rgba(168, 85, 247, 0.4),
+      0 0 30px rgba(168, 85, 247, 0.3);
+    transform: rotate(180deg);
+  }
+  100% {
+    box-shadow: 
+      0 0 5px rgba(139, 92, 246, 0.4),
+      0 0 10px rgba(139, 92, 246, 0.3),
+      0 0 15px rgba(139, 92, 246, 0.2);
+    transform: rotate(360deg);
+  }
+}
+
+.animate-rotating-glow {
+  animation: rotating-glow 3s linear infinite;
+}
+
+/* 旋转边框动画 - 类似光圈效果 */
+@keyframes rotating-border {
+  0% {
+    background: linear-gradient(0deg, transparent, rgba(139, 92, 246, 0.8));
+  }
+  25% {
+    background: linear-gradient(90deg, transparent, rgba(139, 92, 246, 0.8));
+  }
+  50% {
+    background: linear-gradient(180deg, transparent, rgba(139, 92, 246, 0.8));
+  }
+  75% {
+    background: linear-gradient(270deg, transparent, rgba(139, 92, 246, 0.8));
+  }
+  100% {
+    background: linear-gradient(360deg, transparent, rgba(139, 92, 246, 0.8));
+  }
+}
+
+.rotating-border::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  background: linear-gradient(45deg, transparent, rgba(139, 92, 246, 0.8));
+  border-radius: inherit;
+  animation: rotating-border 3s linear infinite;
+  z-index: -1;
+}
+
 /* 自定义导航动画 */
 .transition-nav {
     transition: all 0.3s ease-in-out;
+}
+
+/* 悬停放大动画 */
+.hover-scale {
+    transition: transform 0.3s ease;
+}
+
+.hover-scale:hover {
+    transform: scale(1.05);
+}
+
+/* 淡入动画 */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-fade-in {
+    animation: fadeIn 0.8s ease-out;
+}
+
+/* 延迟淡入动画 */
+.animate-fade-in-delay-1 {
+    animation: fadeIn 0.8s ease-out 0.2s both;
+}
+
+.animate-fade-in-delay-2 {
+    animation: fadeIn 0.8s ease-out 0.4s both;
+}
+
+.animate-fade-in-delay-3 {
+    animation: fadeIn 0.8s ease-out 0.6s both;
+}
+
+/* 滑入动画 */
+@keyframes slideInFromLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInFromRight {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.animate-slide-in-left {
+    animation: slideInFromLeft 0.8s ease-out;
+}
+
+.animate-slide-in-right {
+    animation: slideInFromRight 0.8s ease-out;
+}
+
+/* 图片悬停效果 */
+.image-hover-effect {
+    transition: all 0.4s ease;
+    filter: brightness(1) saturate(1);
+}
+
+.image-hover-effect:hover {
+    filter: brightness(1.1) saturate(1.2);
+    transform: scale(1.02);
+}
+
+/* 按钮悬停发光效果 */
+.button-glow {
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(139, 92, 246, 0.3);
+}
+
+.button-glow:hover {
+    box-shadow: 0 8px 25px rgba(139, 92, 246, 0.5);
+    transform: translateY(-2px);
+}
+
+/* 卡片悬停效果 */
+.card-hover {
+    transition: all 0.3s ease;
+}
+
+.card-hover:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+/* 脉冲效果 */
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+.animate-pulse-slow {
+    animation: pulse 3s ease-in-out infinite;
+}
+
+/* 闪烁效果 */
+@keyframes sparkle {
+    0%, 100% {
+        opacity: 1;
+        filter: brightness(1);
+    }
+    50% {
+        opacity: 0.8;
+        filter: brightness(1.2);
+    }
+}
+
+.animate-sparkle {
+    animation: sparkle 2s ease-in-out infinite;
 }

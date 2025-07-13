@@ -6,14 +6,14 @@ export default function Services({ data }) {
     if (!data || !Array.isArray(data)) return null;
 
     return (
-        <div className="min-h-screen bg-gray-50 dark:bg-gray-800 py-16">
+        <div className="min-h-screen bg-brand-50 dark:bg-gray-800 py-16">
             <div className="container mx-auto px-4">
                 {/* 页面标题 */}
                 <div className="text-center mb-16">
-                    <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
+                    <h2 className="font-heading text-4xl md:text-5xl font-bold text-brand-700 dark:text-white mb-4 tracking-wide">
                         {locale === 'zh' ? '我们的服务' : 'Our Services'}
                     </h2>
-                    <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+                    <p className="font-sans text-xl text-text-primary dark:text-gray-300 max-w-2xl mx-auto leading-relaxed">
                         {locale === 'zh' 
                             ? '专业、可靠、高质量的电气和暖通空调服务' 
                             : 'Professional, reliable, and high-quality electrical and HVAC services'
@@ -26,7 +26,7 @@ export default function Services({ data }) {
                     {data.map((service) => (
                         <div 
                             key={service.id} 
-                            className="bg-white dark:bg-gray-900 rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300"
+                            className="bg-white dark:bg-gray-900 rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 border border-brand-100 dark:border-gray-700"
                         >
                             {/* 服务图片 */}
                             <div className="h-48 bg-gray-200 dark:bg-gray-700 overflow-hidden">
@@ -49,10 +49,10 @@ export default function Services({ data }) {
                             
                             {/* 服务内容 */}
                             <div className="p-6">
-                                <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">
+                                <h3 className="text-xl font-bold text-brand-700 dark:text-white mb-3">
                                     {service.title[locale] || service.title.en}
                                 </h3>
-                                <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
+                                <p className="text-text-secondary dark:text-gray-300 leading-relaxed">
                                     {service.description[locale] || service.description.en}
                                 </p>
                                 
@@ -60,7 +60,7 @@ export default function Services({ data }) {
                                 <div className="mt-6">
                                     <a 
                                         href="#contact" 
-                                        className="inline-flex items-center text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 font-semibold transition-colors duration-200"
+                                        className="inline-flex items-center text-brand-600 dark:text-brand-400 hover:text-brand-700 dark:hover:text-brand-300 font-semibold transition-colors duration-200"
                                     >
                                         {locale === 'zh' ? '了解更多' : 'Learn More'}
                                         <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -75,7 +75,7 @@ export default function Services({ data }) {
 
                 {/* 底部 CTA */}
                 <div className="text-center mt-16">
-                    <p className="text-lg text-gray-600 dark:text-gray-300 mb-6">
+                    <p className="text-lg text-text-primary dark:text-gray-300 mb-6">
                         {locale === 'zh' 
                             ? '需要专业的电气或暖通空调服务？' 
                             : 'Need professional electrical or HVAC services?'
@@ -83,7 +83,7 @@ export default function Services({ data }) {
                     </p>
                     <a 
                         href="#contact" 
-                        className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-8 rounded-lg transition-colors duration-200 text-lg"
+                        className="bg-brand-600 hover:bg-brand-700 text-white font-semibold py-3 px-8 rounded-lg transition-colors duration-200 text-lg shadow-lg"
                     >
                         {locale === 'zh' ? '立即联系我们' : 'Contact Us Today'}
                     </a>
