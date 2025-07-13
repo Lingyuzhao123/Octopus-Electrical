@@ -1,13 +1,13 @@
 import { useI18n } from '../hooks/useI18n';
 
-export default function Projects({ data }) {
+export default function Projects({ data, onNavClick }) {
     const { locale } = useI18n();
 
     return (
         <div className="min-h-screen bg-brand-50 dark:bg-gray-800 py-16">
             <div className="container mx-auto px-4">
                 {/* 页面标题 */}
-                <div className="text-center mb-16">
+                <div className="text-center mb-16 animate-fade-in">
                     <h2 className="font-heading text-4xl md:text-5xl font-bold text-brand-700 dark:text-white mb-4 tracking-wide">
                         {locale === 'zh' ? '我们的项目' : 'Our Projects'}
                     </h2>
@@ -21,8 +21,8 @@ export default function Projects({ data }) {
 
                 {/* 项目内容 */}
                 {!data || data.length === 0 ? (
-                    <div className="text-center py-16">
-                        <div className="w-24 h-24 bg-gray-100 dark:bg-gray-700 rounded-full flex items-center justify-center mx-auto mb-6">
+                    <div className="text-center py-16 animate-fade-in-delay-1">
+                        <div className="w-24 h-24 bg-gray-100 dark:bg-gray-700 rounded-full flex items-center justify-center mx-auto mb-6 animate-pulse-slow">
                             <svg className="w-12 h-12 text-gray-400 dark:text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
                             </svg>
@@ -36,19 +36,19 @@ export default function Projects({ data }) {
                                 : 'We are currently updating our project portfolio. Please contact us to learn more about our recent work and capabilities.'
                             }
                         </p>
-                        <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                            <a 
-                                href="#contact" 
-                                className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-200"
+                        <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-delay-2">
+                            <button 
+                                onClick={() => onNavClick && onNavClick('contact')}
+                                className="bg-brand-600 hover:bg-brand-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-200 button-glow"
                             >
                                 {locale === 'zh' ? '联系我们' : 'Contact Us'}
-                            </a>
-                            <a 
-                                href="#services" 
+                            </button>
+                            <button 
+                                onClick={() => onNavClick && onNavClick('services')}
                                 className="bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 text-gray-900 dark:text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-200"
                             >
                                 {locale === 'zh' ? '查看服务' : 'View Services'}
-                            </a>
+                            </button>
                         </div>
                     </div>
                 ) : (

@@ -69,20 +69,10 @@ export default function App() {
                             transition: 'opacity 0.5s ease-in-out'
                         }}
                     >
-                        <Projects data={cfg.sections.projects} />
+                        <Projects data={cfg.sections.projects} onNavClick={handleNavClick} />
                     </section>
 
-                    {/* Why Choose Us Section */}
-                    <section 
-                        id="why-choose-us" 
-                        className="h-screen flex-shrink-0 relative overflow-y-auto custom-scrollbar"
-                        style={{
-                            opacity: currentSection === 3 ? 1 : 0.7,
-                            transition: 'opacity 0.5s ease-in-out'
-                        }}
-                    >
-                        <WhyChooseUs onNavClick={handleNavClick} />
-                    </section>
+
 
                     {/* Contact Section */}
                     <section 
@@ -95,35 +85,19 @@ export default function App() {
                     >
                         <Contact data={cfg.sections.contact} />
                     </section>
-                </div>
 
-                {/* Section Indicators */}
-                <div className="fixed right-8 top-1/2 transform -translate-y-1/2 z-50 space-y-8">
-                    {sections.map((section, index) => (
-                        <button
-                            key={section}
-                            onClick={() => handleNavClick(section)}
-                            className={`w-5 h-5 rounded-full transition-all duration-300 ${
-                                currentSection === index 
-                                    ? 'bg-brand-600 scale-150 shadow-lg animate-pulse' 
-                                    : 'bg-gray-400 hover:bg-brand-400 hover:scale-125'
-                            }`}
-                            aria-label={`Go to ${section} section`}
-                        />
-                    ))}
+                                        {/* Why Choose Us Section */}
+                    <section 
+                        id="why-choose-us" 
+                        className="h-screen flex-shrink-0 relative overflow-y-auto custom-scrollbar"
+                        style={{
+                            opacity: currentSection === 3 ? 1 : 0.7,
+                            transition: 'opacity 0.5s ease-in-out'
+                        }}
+                    >
+                        <WhyChooseUs onNavClick={handleNavClick} />
+                    </section>
                 </div>
-
-                {/* Scroll Hint */}
-                {currentSection === 0 && (
-                    <div className="fixed bottom-8 left-1/2 transform -translate-x-1/2 z-50 animate-bounce">
-                        <div className="text-center text-brand-600 dark:text-brand-400">
-                            <div className="w-6 h-10 border-2 border-current rounded-full mx-auto mb-2 relative">
-                                <div className="w-1 h-3 bg-current rounded-full absolute top-2 left-1/2 transform -translate-x-1/2 animate-pulse"></div>
-                            </div>
-                            <p className="text-xs font-medium">Scroll to explore</p>
-                        </div>
-                    </div>
-                )}
 
                 {/* Loading indicator during transitions */}
                 {isScrolling && (
