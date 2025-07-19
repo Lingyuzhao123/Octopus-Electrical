@@ -6,7 +6,7 @@ export default function Home({ data, onNavClick }) {
     if (!data) return null;
 
     return (
-        <div className="min-h-screen bg-gradient-brand dark:bg-gray-900 flex items-center pt-24 pb-16">
+        <div className="min-h-screen bg-gradient-brand dark:bg-none dark:bg-gray-900 flex items-center pt-24 pb-16">
             <div className="container mx-auto px-4 py-20">
                 <div className="text-center max-w-5xl mx-auto">
                     {/* 主标题 */}
