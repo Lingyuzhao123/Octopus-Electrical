@@ -108,11 +108,11 @@
                 },
                 "image": "https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?w=800&h=600&fit=crop",
                 "description": {
-                    "en": "Complete electrical rewiring for a 4-bedroom family home in Christchurch. Updated to modern standards with new switchboard.",
-                    "zh": "基督城一栋4居室家庭住宅的完整电气重新布线。更新到现代标准，配备新的配电箱。"
+                    "en": "Complete electrical rewiring for a 4-bedroom family home in Wellingtone. Updated to modern standards with new switchboard.",
+                    "zh": "惠灵顿一栋4居室家庭住宅的完整电气重新布线。更新到现代标准，配备新的配电箱。"
                 },
                 "category": "electrical",
-                "location": "Christchurch",
+                "location": "Wellington",
                 "duration": "5 days"
             },
             {
@@ -127,7 +127,7 @@
                     "zh": "为200平方米办公空间安装现代暖通空调系统。节能的气候控制解决方案。"
                 },
                 "category": "hvac",
-                "location": "Christchurch CBD",
+                "location": "Wellington CBD",
                 "duration": "3 days"
             },
             {
@@ -142,7 +142,7 @@
                     "zh": "在家庭车库安装特斯拉壁挂式连接器，配备专用电路和安全功能。"
                 },
                 "category": "ev",
-                "location": "Riccarton",
+                "location": "Poniroa",
                 "duration": "1 day"
             },
             {
